@@ -1,0 +1,115 @@
+---
+title: <center> <h1>MIRANTE DA DENGUE – ESCOLA DE CONTAS TCEMG</h1> </center>
+output: 
+  prettydoc::html_pretty:
+  theme: cayman
+  highlight: github
+runtime: shiny
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+Este infográfico apresenta relatório iterativo referente ao levantamento realizado sobre casos de ocorrência de dengue, no município de Belo Horizonte, considerando os dados extraídos do (i) Levantamento do Índice Rápido do Aedes aegypti – LIRAa da Prefeitura Municipal de Belo Horizonte – PBH; (ii) da Execução Orçamentária da Despesa do Portal SICOM, do Tribunal de Contas do Estado de Minas Gerais – TCEMG; do (iii) resultado de interesse de pesquisa de usuários de internet da região de Minas Gerais acerca do termo “sintomas da dengue”, disponibilizado pela ferramenta Google Trends e (iv) Boletim Epidemiológico publicado pela Secretaria de estado de Saúde do estado de Minas Gerais – SES.
+
+
+## Principais resultados
+
+1-	A pesquisa revela forte relação entre casos de dengue e interesse de pesquisa do Google Trends. Modelo linear de regressão LOG-LOG detectou que 74,46% dos desvios de casos confirmados em torno da média são explicados pelos desvios do interesse de pesquisa.
+
+2-	A pesquisa revela relação entre valores de despesa orçamentários e casos confirmados de dengue, porém em uma menor intensidade. Modelo linear de regressão LOG-LOG detectou que 37,97% dos desvios de valores de despesa em torno da média são explicados pelos desvios de casos de dengue.
+
+3-	O modelo estima que para cada aumento de 100 ocorrências de dengue há um correspondente acréscimo de R$3700,00 de despesa por parte da PBH.
+
+
+
+```{r map, echo=FALSE}
+
+shinyAppDir(
+  "./tableau",
+  options = list(
+    width = "100%", height = 650
+  )
+)
+```
+<h6>Fonte: Boletim Epidemiológico - SES/MG.</h6>
+
+```{r map2, echo=FALSE}
+
+shinyAppDir(
+  "./tableau2",
+  options = list(
+    width = "100%", height = 650
+  )
+)
+```
+<h6>Fonte: Balanço da Dengue - LIRAa - PBH.</h6>
+
+
+```{r line, echo=FALSE}
+
+shinyAppDir(
+  "./line",
+  options = list(
+    width = "100%", height = 650
+  )
+)
+```
+<h6>Fontes: Balanço da Dengue - LIRAa - PBH, SICOM, Google Trends.</h6>
+
+
+```{r scatter, echo=FALSE}
+
+shinyAppDir(
+  "./scatter",
+  options = list(
+    width = "100%", height = 650
+  )
+)
+```
+<h6>Fontes: Balanço da Dengue - LIRAa - PBH, SICOM, Google Trends.</h6>
+
+
+```{r reg, echo=FALSE}
+
+shinyAppDir(
+  "./reg",
+  options = list(
+    width = "100%", height = 650
+  )
+)
+```
+<h6>Fontes: Balanço da Dengue - LIRAa - PBH, SICOM, Google Trends.</h6>
+
+
+## Notas Metodológicas 
+
+- Os dados de casos confirmados de dengue foram obtidos mensalmente entre 2015 a 2017 através de relatórios do Balanço da Dengue, disponível em http://www.pbh.gov.br/smsa/dengue/balanco_dengue.php.
+- Os dados do Google Trends consideraram a delimitação da região Minas Gerais dentro do período 2015 a 2017, disponível em https://trends.google.com.br/trends/.
+- Os dados de Despesa Orçamentária da PBH referem-se aos valores liquidados conforme Relatório de Empenhos para os exercícios de 2015 a 2017, no Portal SICOM, do TCEMG.
+- Todas as variáveis sofreram transformação logarítmica neperiana para fins de visualização em gráficos do tipo “scatter chart”. Para interpretação, foi transformado o coeficiente de regressão utilizando função exponencial de base e.
+- Para informações sobre modelos de regressão lineares LOG-LOG, favor acessar https://pt.wikipedia.org/wiki/Regress%C3%A3o_linear.
+
+
+
+## Autores
+- ROBERTO MIRANDA COLARES JÚNIOR
+- ANTÔNIO DA COSTA LIMA FILHO
+- ANA CRISTINA MEDEIROS DE SALLES LOPES
+- BERNARDO MANGUALDE FELIZARDO
+- DENISE MARIA DELGADO
+- MARCELO GOMES PENIDO
+- RICARDO NOGUEIRA DE ALMEIDA
+- RITA DE CÁSSIA CHIO SERRA
+- RUI BARRETO DE SOUSA 
+
